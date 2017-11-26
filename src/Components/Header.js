@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import Button from "./Button/index"; //linki wewnątrz aplikacji
+import {Link} from 'react-router-dom'; //linki wewnątrz aplikacji
+import Button from "./Button/index";
 
 
 class Header
@@ -12,8 +12,9 @@ class Header
                     <li><Link to='/'>Dashboard</Link></li>
                     <li><Link to='/todo'>To Do</Link></li>
                     <li><Link to='/counter'>Counter</Link></li>
+                    <li><Link to='/Form'>Form</Link></li>
                 </ul>
-                <Button label="OK!" />
+                <Button label="OK!"/>
 
             </div>
         );
