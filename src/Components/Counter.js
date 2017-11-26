@@ -23,9 +23,9 @@ class Counter
         });
     }
 
-    componentWillMount() {
-        console.log('Jestem w will mount')
-    }
+    // componentWillMount() {
+    //     console.log('Jestem w will mount')
+    // }
 
     shouldComponentUpdate(nextProps, nextState) {
         if (nextProps === 'Warszawa') {
@@ -37,11 +37,11 @@ class Counter
         return true;
     }
 
-    componentWillReceiveProps(nextProps) {
-        //operacje na stanie
-        this.props.name //dotychczasowa wlasciwosc
-        nextProps.name //nastepna
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     //operacje na stanie
+    //     this.props.name //dotychczasowa wlasciwosc
+    //     nextProps.name //nastepna
+    // }
 
     render() {
         return <div>
@@ -51,9 +51,9 @@ class Counter
         </div>
     }
 
-    componentDidMount() {
-        console.log("Jestem w did Mount")
-    }
+    // componentDidMount() {
+    //     console.log("Jestem w did Mount")
+    // }
 
     componentWillUnmount() {
         console.log('Jestem w unmount')

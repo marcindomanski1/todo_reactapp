@@ -40,7 +40,7 @@ class Form extends Component {
     render() {
         return (
             <div>
-                <h3>Title: {(this.state.title != '' ? 'PROMOCJA ' + this.state.title : 'Bez Promocji: ')}</h3>
+                <h3>Title: {this.state.title ? 'PROMOCJA ' + this.state.title : 'Bez Promocji: '}</h3>
                 <p>Content: {this.state.content}</p>
                 <p>Category: {this.state.category}</p>
                 <form onSubmit={this.handleSubmit}>
