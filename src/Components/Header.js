@@ -15,6 +15,7 @@ class Header
                     <li><Link to='/todo'>To Do</Link></li>
                     <li><Link to='/counter'>Counter</Link></li>
                     <li><Link to='/Form'>Form</Link></li>
+                    <li><Link to='/users'>Users</Link></li>
                 </ul>
                 <Button label="OK!"/>
                 <div>
