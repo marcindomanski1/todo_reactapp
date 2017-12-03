@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'; //linki wewnątrz aplikacji
 import Button from "./Button/index";
-import Search from "./Search/index";
+// import Search from "./Search/index";
 
 
 class Header
@@ -16,11 +16,12 @@ class Header
                     <li><Link to='/counter'>Counter</Link></li>
                     <li><Link to='/Form'>Form</Link></li>
                     <li><Link to='/users'>Users</Link></li>
+                    <li><Link to='/Tasks'>Tasks</Link></li>
                 </ul>
                 <Button label="OK!"/>
-                <div>
-                    <Search/>
-                </div>
+                {/*<div>*/}
+                    {/*<Search/>*/}
+                {/*</div>*/}
             </div>
         );
     }

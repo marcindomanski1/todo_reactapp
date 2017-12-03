@@ -8,6 +8,7 @@ import Todo from "./Components/Todo";
 import Footer from "./Components/Footer";
 import Form from "./Components/Form";
 import Users from "./Components/Users";
+import TaskContainer from "./Components/Tasks/continer"
 
 //import Form from "./Components/Form/index";      //nazwe pliku mozna pominac jesli plik ma nazwe index
 //import Form from "./Components/Form/index.js";   //nazwe pliku mozna pominac jesli plik ma nazwe index
@@ -23,6 +24,7 @@ class App extends Component {
                     <Route path='/counter' component={Counter}/>
                     <Route path='/form' component={Form}/>
                     <Route path='/users' component={Users}/>
+                    <Route path='/tasks' component={TaskContainer}/>
                     <Footer/>
                 </div>
             </Router>
