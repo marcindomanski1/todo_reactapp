@@ -1,33 +1,25 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
-import Dashboard from './Components/Dashboard';
 import Header from './Components/Header';
-import Counter from "./Components/Counter";
-import Todo from "./Components/Todo";
 import Footer from "./Components/Footer";
-import Form from "./Components/Form";
-import Users from "./Components/Users";
 import TaskContainer from "./Components/Tasks/continer"
-
-//import Form from "./Components/Form/index";      //nazwe pliku mozna pominac jesli plik ma nazwe index
-//import Form from "./Components/Form/index.js";   //nazwe pliku mozna pominac jesli plik ma nazwe index
+import Reboot from 'material-ui/Reboot';
+import 'typeface-roboto'
+import Task from "./Components/Tasks/task";
 
 class App extends Component {
     render() {
         return (
-            <Router>
+
+
                 <div>
+                    <Reboot/>
                     <Header/>
-                    <Route exact path='/' component={Dashboard}/>
-                    <Route path='/todo' component={Todo}/>
-                    <Route path='/counter' component={Counter}/>
-                    <Route path='/form' component={Form}/>
-                    <Route path='/users' component={Users}/>
-                    <Route path='/tasks' component={TaskContainer}/>
+                    <TaskContainer/>
+                    <Task/>
                     <Footer/>
                 </div>
-            </Router>
+
         );
     }
 }
