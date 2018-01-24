@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import './App.css';
 import Header from './Components/Header';
 import Footer from "./Components/Footer";
-import TaskContainer from "./Components/Tasks/continer"
-import 'typeface-roboto'
+import TaskContainer from "./Components/Tasks/continer";
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
@@ -12,15 +10,13 @@ import Grid from 'material-ui/Grid';
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        margin: 30
+        margin: 40
     },
     paper: {
-        padding: 16,
-        textAlign: 'center',
-        boxSizing: 'border-box',
-        position: 'relative',
+        padding: 20,
+        textAlign: 'left',
         color: theme.palette.text.secondary,
-    },
+    }
 });
 
 

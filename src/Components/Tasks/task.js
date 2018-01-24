@@ -1,26 +1,15 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {withStyles} from 'material-ui/styles';
 import {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
 
-const style = theme => ({
+const style = ({
     checked: {
-        // width: '100%',
-        // maxWidth: 360,
-        // backgroundColor: theme.palette.background.paper,
-        // color: 'red',
-        // textDecoration: 'line-through'
+        color: 'red',
+        textDecoration: 'line-through'
     },
-    unChecked: {
-        // width: '100%',
-        // maxWidth: 360,
-        // backgroundColor: theme.palette.background.paper,
-        // color: 'green'
-
-    }
+    unChecked: {}
 });
 
 class Task extends Component {
@@ -53,9 +42,6 @@ class Task extends Component {
     }
 }
 
-Task.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
 
-export default withStyles(style)(Task);
+export default Task;
 

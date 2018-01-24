@@ -5,8 +5,9 @@
   "dependencies": {
     "material-ui": "^1.0.0-beta.30",
     "material-ui-icons": "^1.0.0-beta.17",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
     "typeface-roboto": "0.0.50"
@@ -16,5 +17,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcindomanski1/todo_reactapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcindomanski1/todo_reactapp/issues"
+  },
+  "homepage": "https://github.com/marcindomanski1/todo_reactapp#readme"
 }

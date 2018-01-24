@@ -5,33 +5,18 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
-        marginTop: 30,
-    },
-    paper: {
-        padding: 16,
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-});
-
-
 class Container extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             query: '',
             task: '',
-            tasks: ['Add your first task']
+            tasks: ['Sample task']
         };
         this.textChanged = this.textChanged.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.searchChanged = this.searchChanged.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleOnRemove = this.handleOnRemove.bind(this);
-
     }
 
     textChanged(event) {
@@ -58,46 +43,46 @@ class Container extends Component {
     }
 
     render() {
-        const classes = this.props;
         return (
-            <div className={classes.root}>
-                <Grid container spacing={24}>
-                    <Grid item xs={12}>
-                        <Paper className={classes.paper}>
+            <Grid container spacing={24}>
+                <Grid item sm={3}/>
+                <Grid item xs={12} md={6}>
+                    <Paper>
+                        <Grid item xs={12}>
                             <TextField
                                 id="task"
                                 label="Search"
                                 margin="normal"
                                 onChange={this.searchChanged}
                             />
-                            <Grid item xs={12}>
-                                <form onSubmit={this.handleSubmit}>
-                                    <TextField
-                                        id="task"
-                                        label="Task"
-                                        value={this.state.task}
-                                        margin="normal"
-                                        onChange={this.textChanged}
-                                    />
-                                    <Button type="submit" fab color="primary" aria-label="add" className={classes.button}>Add Task</Button>
-                                </form>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <h2>My tasks</h2>
-                            </Grid>
-                            <Grid item xs={12}><TaskList
+                        </Grid>
+                        <Grid item xs={12}>
+                            <form onSubmit={this.handleSubmit}>
+                                <TextField
+                                    id="task"
+                                    label="Task"
+                                    value={this.state.task}
+                                    margin="normal"
+                                    onChange={this.textChanged}
+                                />
+                                <Button type="submit" fab color="primary" aria-label="add"
+                                >Add Task</Button>
+                            </form>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <h2>My tasks</h2>
+                            <TaskList
                                 query={this.state.query}
                                 tasks={this.state.tasks}
                                 onRemove={this.handleOnRemove}
                             />
-                            </Grid>
-                        </Paper>
-                    </Grid>
-
+                        </Grid>
+                    </Paper>
                 </Grid>
-            </div>
-        )
-    };
+                <Grid item sm={3}/>
+            </Grid>
+        );
+    }
 }
 
 export default Container;
