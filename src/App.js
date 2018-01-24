@@ -13,7 +13,7 @@ import Grid from 'material-ui/Grid';
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        marginTop: 30,
+        margin: 30
     },
     paper: {
         padding: 16,
@@ -48,6 +48,6 @@ class App extends Component {
 
 App.propTypes = {
     classes: PropTypes.object.isRequired,
-}
+};
 
 export default withStyles(styles)(App);

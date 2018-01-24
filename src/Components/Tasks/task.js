@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
-import  {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
+import {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
 import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
-
 
 const style = theme => ({
     checked: {
@@ -42,7 +41,7 @@ class Task extends Component {
         return (
             <ListItem>
                 <Checkbox onChange={this.handleToggle}/>
-                <ListItemText primary={this.props.label} style={this.state.checked ? style.checked : style.unChecked} />
+                <ListItemText primary={this.props.label} style={this.state.checked ? style.checked : style.unChecked}/>
                 <ListItemSecondaryAction>
                     <IconButton aria-label="Delete">
                         <DeleteIcon onClick={() => this.props.onRemove(this.props.label)}/>

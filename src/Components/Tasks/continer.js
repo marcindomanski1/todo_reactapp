@@ -3,9 +3,7 @@ import TaskList from "./TasksList";
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
-import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
-import PropTypes from 'prop-types';
 
 const styles = theme => ({
     root: {
@@ -58,7 +56,6 @@ class Container extends Component {
             task: ''
         });
     }
-
 
     render() {
         const classes = this.props;
