@@ -1,36 +1,59 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {withStyles} from 'material-ui/styles';
+import  {ListItem, ListItemSecondaryAction, ListItemText} from 'material-ui/List';
+import Checkbox from 'material-ui/Checkbox';
+import IconButton from 'material-ui/IconButton';
+import DeleteIcon from 'material-ui-icons/Delete';
+
+
+const style = theme => ({
+    checked: {
+        width: '100%',
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
+        color: 'red',
+        textDecoration: 'line-through'
+    },
+    unChecked: {
+
+
+    }
+});
 
 class Task extends Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
         this.state = {
             checked: false
         }
     }
 
-    renderLabel() {
-        if (this.state.checked) {
-            return (
-                <span style={{textDecoration: 'line-through'}}>
-                {this.props.label}
-                    </span>
-            )
-        }
-        return this.props.label;
-    }
-
-    handleChange(event) {
+    handleToggle(event) {
         this.setState({checked: event.target.checked});
     }
 
     render() {
+
         return (
-            <div>
-                <input type="checkbox" onChange={this.handleChange}/> {this.renderLabel()}
-            </div>
+            <ListItem>
+                <Checkbox onChange={this.handleToggle}/>
+                <ListItemText primary={this.props.label} style={this.state.checked ? style.checked : style.unChecked} />
+                <ListItemSecondaryAction>
+                    <IconButton aria-label="Delete">
+                        <DeleteIcon onClick={() => this.props.onRemove(this.props.label)}/>
+                    </IconButton>
+                </ListItemSecondaryAction>
+            </ListItem>
+
         );
     }
 }
 
-export default Task;
+Task.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(style)(Task);
+

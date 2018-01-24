@@ -1,18 +1,21 @@
 import React, {Component} from 'react';
 import Task from './task';
+import TaskList from "./TasksList";
 
 class Container extends Component {
 
     constructor(props) {
         super(props);
-        this.textChanged = this.textChanged.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.searchChanged = this.searchChanged.bind(this);
         this.state = {
             query: '',
             task: '',
-            tasks: []
+            tasks: ['Add your first task']
         };
+        this.textChanged = this.textChanged.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.searchChanged = this.searchChanged.bind(this);
+        this.handleOnRemove = this.handleOnRemove.bind(this);
+
     }
 
     textChanged(event) {
@@ -31,6 +34,12 @@ class Container extends Component {
         event.preventDefault();
     }
 
+    handleOnRemove(taskRemoved) {
+        this.setState({
+            tasks: this.state.tasks.filter(task => task !== taskRemoved),
+            task: ''
+        });
+    }
 
     render() {
         return (
@@ -45,13 +54,12 @@ class Container extends Component {
                 </form>
 
                 <h2>My tasks</h2>
-                {
-                    this.state.tasks
-                        .filter((task) => task.toUpperCase().indexOf(this.state.query.toUpperCase()) !== -1)
-                        .map((task, index) => (
-                            <Task key={index} label={task}/>
-                        ))
-                }
+                <TaskList
+                query={this.state.query}
+                tasks={this.state.tasks}
+                onRemove={this.handleOnRemove}
+
+                />
             </div>
         )
     };
