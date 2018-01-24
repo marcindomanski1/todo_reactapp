@@ -8,17 +8,17 @@ import DeleteIcon from 'material-ui-icons/Delete';
 
 const style = theme => ({
     checked: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-        color: 'red',
-        textDecoration: 'line-through'
+        // width: '100%',
+        // maxWidth: 360,
+        // backgroundColor: theme.palette.background.paper,
+        // color: 'red',
+        // textDecoration: 'line-through'
     },
     unChecked: {
-        width: '100%',
-        maxWidth: 360,
-        backgroundColor: theme.palette.background.paper,
-        color: 'green'
+        // width: '100%',
+        // maxWidth: 360,
+        // backgroundColor: theme.palette.background.paper,
+        // color: 'green'
 
     }
 });

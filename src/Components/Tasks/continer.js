@@ -79,7 +79,7 @@ class Container extends Component {
                                         margin="normal"
                                         onChange={this.textChanged}
                                     />
-                                    <Button type="submit" raised color="primary">Add Task</Button>
+                                    <Button type="submit" fab color="primary" aria-label="add" className={classes.button}>Add Task</Button>
                                 </form>
                             </Grid>
                             <Grid item xs={12}>

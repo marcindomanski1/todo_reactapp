@@ -4,7 +4,6 @@ import Header from './Components/Header';
 import Footer from "./Components/Footer";
 import TaskContainer from "./Components/Tasks/continer"
 import 'typeface-roboto'
-import Task from "./Components/Tasks/task";
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
@@ -35,7 +34,6 @@ class App extends Component {
                         <Paper className={classes.paper}>
                             <Header/>
                             <TaskContainer/>
-                            <Task/>
                             <Footer/>
                         </Paper>
                     </Grid>
