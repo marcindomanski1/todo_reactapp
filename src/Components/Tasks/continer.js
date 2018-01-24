@@ -3,6 +3,21 @@ import TaskList from "./TasksList";
 import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
+import {withStyles} from 'material-ui/styles';
+import Paper from 'material-ui/Paper';
+import PropTypes from 'prop-types';
+
+const styles = theme => ({
+    root: {
+        flexGrow: 1,
+        marginTop: 30,
+    },
+    paper: {
+        padding: 16,
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+});
 
 
 class Container extends Component {
@@ -44,33 +59,45 @@ class Container extends Component {
         });
     }
 
+
     render() {
+        const classes = this.props;
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <TextField
-                        id="task"
-                        label="Search"
-                        margin="normal"
-                        onChange={this.searchChanged}
-                    />
-                    <TextField
-                        id="task"
-                        label="Task"
-                        value={this.state.task}
-                        margin="normal"
-                        onChange={this.textChanged}
-                    />
-                    <Button type="submit" raised color="primary">Add Task</Button>
-                </form>
+            <div className={classes.root}>
+                <Grid container spacing={24}>
+                    <Grid item xs={12}>
+                        <Paper className={classes.paper}>
+                            <TextField
+                                id="task"
+                                label="Search"
+                                margin="normal"
+                                onChange={this.searchChanged}
+                            />
+                            <Grid item xs={12}>
+                                <form onSubmit={this.handleSubmit}>
+                                    <TextField
+                                        id="task"
+                                        label="Task"
+                                        value={this.state.task}
+                                        margin="normal"
+                                        onChange={this.textChanged}
+                                    />
+                                    <Button type="submit" raised color="primary">Add Task</Button>
+                                </form>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <h2>My tasks</h2>
+                            </Grid>
+                            <Grid item xs={12}><TaskList
+                                query={this.state.query}
+                                tasks={this.state.tasks}
+                                onRemove={this.handleOnRemove}
+                            />
+                            </Grid>
+                        </Paper>
+                    </Grid>
 
-                <h2>My tasks</h2>
-                <TaskList
-                    query={this.state.query}
-                    tasks={this.state.tasks}
-                    onRemove={this.handleOnRemove}
-
-                />
+                </Grid>
             </div>
         )
     };
