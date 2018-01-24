@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
-import Task from './task';
 import TaskList from "./TasksList";
+import Grid from 'material-ui/Grid';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
+
 
 class Container extends Component {
 
@@ -44,20 +47,28 @@ class Container extends Component {
     render() {
         return (
             <div>
-                <input type="text" placeholder="Search" onChange={this.searchChanged}/>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text"
-                           value={this.state.task}
-                           placeholder="Add task: "
-                           onChange={this.textChanged}/>
-                    <input type="submit" placeholder="Add"/>
+                    <TextField
+                        id="task"
+                        label="Search"
+                        margin="normal"
+                        onChange={this.searchChanged}
+                    />
+                    <TextField
+                        id="task"
+                        label="Task"
+                        value={this.state.task}
+                        margin="normal"
+                        onChange={this.textChanged}
+                    />
+                    <Button type="submit" raised color="primary">Add Task</Button>
                 </form>
 
                 <h2>My tasks</h2>
                 <TaskList
-                query={this.state.query}
-                tasks={this.state.tasks}
-                onRemove={this.handleOnRemove}
+                    query={this.state.query}
+                    tasks={this.state.tasks}
+                    onRemove={this.handleOnRemove}
 
                 />
             </div>
