@@ -2,6 +2,7 @@
   "name": "todo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/marcindomanski1/todo_reactapp",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "material-ui": "^1.0.0-beta.30",
@@ -33,6 +34,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/marcindomanski1/todo_reactapp/issues"
-  },
-  "homepage": "https://github.com/marcindomanski1/todo_reactapp"
+  }
 }
