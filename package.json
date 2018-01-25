@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "material-ui": "^1.0.0-beta.30",
     "material-ui-icons": "^1.0.0-beta.17",
     "prop-types": "^15.6.0",
@@ -24,9 +25,6 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "index.js",
-  "devDependencies": {
-    "gh-pages": "^1.1.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marcindomanski1/todo_reactapp.git"
