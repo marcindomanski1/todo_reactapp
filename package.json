@@ -11,7 +11,8 @@
     "react-icons": "^2.2.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17",
-    "typeface-roboto": "0.0.50"
+    "typeface-roboto": "0.0.50",
+    "webpack": "^3.10.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,5 +36,5 @@
   "bugs": {
     "url": "https://github.com/marcindomanski1/todo_reactapp/issues"
   },
-  "homepage": "https://github.com/marcindomanski1/todo_reactapp#readme"
+  "homepage": "https://github.com/marcindomanski1/todo_reactapp"
 }
