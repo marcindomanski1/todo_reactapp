@@ -26,7 +26,6 @@ class Task extends Component {
     }
 
     render() {
-
         return (
             <ListItem>
                 <Checkbox onChange={this.handleToggle}/>
@@ -42,6 +41,4 @@ class Task extends Component {
     }
 }
 
-
 export default Task;
-

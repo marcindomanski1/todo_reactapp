@@ -6,7 +6,6 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Grid from 'material-ui/Grid';
 
-
 const styles = {
     root: {
         width: '100%',

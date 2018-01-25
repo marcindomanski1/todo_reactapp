@@ -4,6 +4,7 @@ import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
 
 class Container extends Component {
     constructor(props) {
@@ -48,7 +49,7 @@ class Container extends Component {
                 <Grid item sm={3}/>
                 <Grid item xs={12} md={6}>
                     <Paper>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} style={{textAlign: "center"}}>
                             <TextField
                                 id="task"
                                 label="Search"
@@ -56,7 +57,7 @@ class Container extends Component {
                                 onChange={this.searchChanged}
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} style={{textAlign: "center"}}>
                             <form onSubmit={this.handleSubmit}>
                                 <TextField
                                     id="task"
@@ -65,12 +66,15 @@ class Container extends Component {
                                     margin="normal"
                                     onChange={this.textChanged}
                                 />
-                                <Button type="submit" fab color="primary" aria-label="add"
-                                >Add Task</Button>
+                                <Grid>
+                                    <Button type="submit" fab color="primary" aria-label="add"
+                                    >Add Task</Button>
+                                </Grid>
                             </form>
                         </Grid>
                         <Grid item xs={12}>
-                            <h2>My tasks</h2>
+                            <Typography type="headline" gutterBottom style={{marginLeft: 20}}>List of
+                                tasks:</Typography>
                             <TaskList
                                 query={this.state.query}
                                 tasks={this.state.tasks}
