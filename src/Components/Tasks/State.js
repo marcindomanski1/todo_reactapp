@@ -56,7 +56,7 @@ export default (state = INITIAL_STATE, action) => {
     case POPULATE_TASKS:
       return {
         ...state,
-        tasks: action.task
+        tasks: action.tasks
       }
     default:
       return state;
