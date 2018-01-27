@@ -5,42 +5,40 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import { connect } from 'react-redux';
+import { add, search, remove } from './State';
+
+const mapStateToProps = state => ({
+  tasksList: state.tasks.tasks,
+  query: state.tasks.query
+});
+
+const mapDispatchToProps = dispatch => ({
+  addNewTask: task => dispatch(add(task)),
+  searchTask: value => dispatch(search(value)),
+  removeTask: task => dispatch(remove(task))
+});
 
 class Container extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      query: '',
-      task: '',
-      tasks: ['Sample task']
+  state = {
+      task: ''
     };
-    this.textChanged = this.textChanged.bind(this);
-    this.searchChanged = this.searchChanged.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleOnRemove = this.handleOnRemove.bind(this);
-  }
 
-  textChanged(event) {
+
+  textChanged = event => {
     this.setState({task: event.target.value});
   }
 
-  searchChanged(event) {
-    this.setState({query: event.target.value});
+  searchChanged = event => {
+    this.props.searchTask(event.target.value);
   }
 
-  handleSubmit(event) {
-    this.setState({
-      tasks: this.state.tasks.concat(this.state.task),
-      task: ''
-    });
-    event.preventDefault();
+  handleSubmit = event => {
+    this.props.addNewTask(this.state.task);
   }
 
-  handleOnRemove(taskRemoved) {
-    this.setState({
-      tasks: this.state.tasks.filter(task => task !== taskRemoved),
-      task: ''
-    });
+  handleOnRemove = task => {
+    this.props.removeTask(task);
   }
 
   render() {
@@ -58,7 +56,6 @@ class Container extends Component {
               />
             </Grid>
             <Grid item xs={12} style={{textAlign: "center"}}>
-              <form onSubmit={this.handleSubmit}>
                 <TextField
                   id="task"
                   label="Task"
@@ -67,17 +64,16 @@ class Container extends Component {
                   onChange={this.textChanged}
                 />
                 <Grid>
-                  <Button type="submit" fab color="primary" aria-label="add"
+                  <Button onClick={this.handleSubmit} type="submit" fab color="primary" aria-label="add"
                   >Add Task</Button>
                 </Grid>
-              </form>
             </Grid>
             <Grid item xs={12}>
               <Typography type="headline" gutterBottom style={{marginLeft: 20}}>List of
                 tasks:</Typography>
               <TaskList
-                query={this.state.query}
-                tasks={this.state.tasks}
+                query={this.props.query}
+                tasks={this.props.tasksList}
                 onRemove={this.handleOnRemove}
               />
             </Grid>
@@ -89,4 +85,7 @@ class Container extends Component {
   }
 }
 
-export default Container;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Container);

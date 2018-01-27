@@ -4,35 +4,35 @@ import Checkbox from 'material-ui/Checkbox';
 import IconButton from 'material-ui/IconButton';
 import DeleteIcon from 'material-ui-icons/Delete';
 
-const style = ({
+const style = {
   checked: {
     color: 'red',
     textDecoration: 'line-through'
   },
   unChecked: {}
-});
+};
 
 class Task extends Component {
-  constructor(props) {
-    super(props);
-    this.handleToggle = this.handleToggle.bind(this);
-    this.state = {
-      checked: false
-    }
+  state = {
+    checked: false
   }
 
-  handleToggle(event) {
-    this.setState({checked: event.target.checked});
+  handleToggle = (event) => {
+    this.setState({
+      checked: !this.state.checked
+    });
   }
 
   render() {
     return (
       <ListItem>
-        <Checkbox onChange={this.handleToggle}/>
-        <ListItemText primary={this.props.label} style={this.state.checked ? style.checked : style.unChecked}/>
+        <Checkbox
+          onChange={this.handleToggle}
+          checked={this.state.checked}/>
+        <ListItemText primary={this.props.name} style={this.state.checked ? style.checked : style.unChecked}/>
         <ListItemSecondaryAction>
           <IconButton aria-label="Delete">
-            <DeleteIcon onClick={() => this.props.onRemove(this.props.label)}/>
+            <DeleteIcon onClick={this.props.onRemove}/>
           </IconButton>
         </ListItemSecondaryAction>
       </ListItem>
