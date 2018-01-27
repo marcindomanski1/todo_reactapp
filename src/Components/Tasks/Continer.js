@@ -5,8 +5,8 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import { connect } from 'react-redux';
-import { add, search, remove } from './State';
+import {connect} from 'react-redux';
+import {add, search, remove, init} from './State';
 
 const mapStateToProps = state => ({
   tasksList: state.tasks.tasks,
@@ -16,14 +16,18 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   addNewTask: task => dispatch(add(task)),
   searchTask: value => dispatch(search(value)),
-  removeTask: task => dispatch(remove(task))
+  removeTask: taskId => dispatch(remove(taskId)),
+  initTasks: () => dispatch(init())
 });
 
 class Container extends Component {
   state = {
-      task: ''
-    };
+    task: ''
+  };
 
+  componentWillMount() {
+    this.props.initTasks();
+  }
 
   textChanged = event => {
     this.setState({task: event.target.value});
@@ -56,17 +60,17 @@ class Container extends Component {
               />
             </Grid>
             <Grid item xs={12} style={{textAlign: "center"}}>
-                <TextField
-                  id="task"
-                  label="Task"
-                  value={this.state.task}
-                  margin="normal"
-                  onChange={this.textChanged}
-                />
-                <Grid>
-                  <Button onClick={this.handleSubmit} type="submit" fab color="primary" aria-label="add"
-                  >Add Task</Button>
-                </Grid>
+              <TextField
+                id="task"
+                label="Task"
+                value={this.state.task}
+                margin="normal"
+                onChange={this.textChanged}
+              />
+              <Grid>
+                <Button onClick={this.handleSubmit} type="submit" fab color="primary" aria-label="add"
+                >Add Task</Button>
+              </Grid>
             </Grid>
             <Grid item xs={12}>
               <Typography type="headline" gutterBottom style={{marginLeft: 20}}>List of
