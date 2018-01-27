@@ -6,7 +6,7 @@ import Button from 'material-ui/Button';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import {connect} from 'react-redux';
-import {add, search, remove, init} from './State';
+import {add, search, remove, init} from './state';
 
 const mapStateToProps = state => ({
   tasksList: state.tasks.tasks,
